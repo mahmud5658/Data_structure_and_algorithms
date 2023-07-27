@@ -87,6 +87,34 @@ public class singly1 {
         }
     }
 
+    // search element from linked list
+
+    public void searchKey(int key) {
+        ListNode current = head;
+        boolean find = false;
+        while (current != null) {
+            if (current.data == key) {
+                System.out.println(key + " is the present in the linked list.");
+                find = true;
+            }
+            current = current.next;
+        }
+        if (find == false) {
+            System.out.println(key + " is not found in the linked list.");
+        }
+    }
+
+    // find length of the linkd list with recursive method
+
+    public int getLength(ListNode current) {
+        if (current == null) {
+            return 0;
+        }
+        return 1 + getLength(current.next);
+    }
+
+    // display linked list
+
     public void display(ListNode head) {
         if (isEmpty()) {
             throw new NoSuchElementException("No such elemet");
@@ -109,6 +137,10 @@ public class singly1 {
         s1.insertAtFirst(50);
         s1.insertAtPosition(100, 3);
         s1.display(s1.head);
+
+        System.out.println(s1.getLength(s1.head));
+
+        s1.searchKey(30);
 
         singly1 s2 = new singly1();
 
